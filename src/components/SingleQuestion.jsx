@@ -1,8 +1,16 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
-const SingleQuestion = ({ id, title, info }) => {
-  const [showAnswer, setShowAnswer] = useState(false);
+const SingleQuestion = ({
+  id,
+  title,
+  info,
+  activeId,
+  setActiveId,
+  toggleActiveId,
+}) => {
+  // const [showAnswer, setShowAnswer] = useState(false);
+  const showAnswer = id === activeId;
 
   return (
     <article>
@@ -11,7 +19,9 @@ const SingleQuestion = ({ id, title, info }) => {
         <button
           type="button"
           onClick={() => {
-            setShowAnswer(!showAnswer);
+            // setShowAnswer(!showAnswer);
+            // setActiveId(id);
+            toggleActiveId(id);
           }}
         >
           {showAnswer ? <FaMinus /> : <FaPlus />}
